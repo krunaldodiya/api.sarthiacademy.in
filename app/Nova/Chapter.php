@@ -54,7 +54,7 @@ class Chapter extends Resource
         return [
             ID::make()->sortable(),
 
-            BelongsTo::make('Category'),
+            BelongsTo::make('Subject'),
 
             HasMany::make('Topics'),
 
