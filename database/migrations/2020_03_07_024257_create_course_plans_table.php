@@ -19,12 +19,8 @@ class CreateCoursePlansTable extends Migration
             $table->uuid('course_id');
             $table->foreign('course_id')->references('id')->on('courses')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->string("name");
-            $table->text("description");
-            $table->string("image");
-
-            $table->integer("price");
-            $table->integer("validity");
+            $table->uuid('plan_id');
+            $table->foreign('plan_id')->references('id')->on('plans')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

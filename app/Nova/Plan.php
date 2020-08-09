@@ -10,14 +10,14 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class CoursePlan extends Resource
+class Plan extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\CoursePlan';
+    public static $model = 'App\Plan';
 
     /**
      * The single value that should be used to represent the resource when being displayed.

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CoursePlan extends Model
+class Plan extends Model
 {
     use HasUuid;
 
