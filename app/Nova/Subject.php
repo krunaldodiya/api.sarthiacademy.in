@@ -53,7 +53,7 @@ class Subject extends Resource
         return [
             ID::make()->sortable(),
 
-            HasMany::make('Chapters'),
+            HasMany::make('Chapters')->sortable(),
 
             Text::make('Name')
                 ->sortable()

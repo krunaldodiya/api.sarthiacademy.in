@@ -20,4 +20,9 @@ class Chapter extends Model
     {
         return $this->belongsTo(Subject::class);
     }
+
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
+    }
 }
