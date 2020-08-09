@@ -4,13 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Traits\HasUuid;
+use Jamesh\Uuid\HasUuid;
 
 class DeviceToken extends Model
 {
     use HasUuid;
 
     protected $guarded = [];
+
+    protected $dates = [
+        'created_at', 'updated_at',
+    ];
 
     public function user()
     {

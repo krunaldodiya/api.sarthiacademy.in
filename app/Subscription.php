@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Traits\HasUuid;
+use Jamesh\Uuid\HasUuid;
 
 use Illuminate\Database\Eloquent\Model;
 

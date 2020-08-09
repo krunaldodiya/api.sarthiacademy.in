@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Jamesh\Uuid\HasUuid;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
@@ -11,7 +13,7 @@ class Subject extends Model
     protected $guarded = [];
 
     protected $dates = [
-        'created_at', 'updated_at', 'expires_at'
+        'created_at', 'updated_at',
     ];
 
     public function chapters()

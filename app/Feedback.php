@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Traits\HasUuid;
+use Jamesh\Uuid\HasUuid;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +13,7 @@ class Feedback extends Model
     protected $guarded = [];
 
     protected $dates = [
-        'created_at', 'updated_at', 'expires_at'
+        'created_at', 'updated_at',
     ];
 
     public function user()

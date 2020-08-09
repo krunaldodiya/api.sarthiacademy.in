@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Jamesh\Uuid\HasUuid;
+
 class Plan extends Model
 {
     use HasUuid;
@@ -11,7 +13,7 @@ class Plan extends Model
     protected $guarded = [];
 
     protected $dates = [
-        'created_at', 'updated_at', 'expires_at'
+        'created_at', 'updated_at',
     ];
 
     public function course()

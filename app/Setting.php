@@ -2,14 +2,17 @@
 
 namespace App;
 
-use App\Traits\HasUuid;
+use Jamesh\Uuid\HasUuid;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Setting extends Model
 {
     use HasUuid;
 
-    public $timestamps = false;
-
     protected $guarded = [];
+
+    protected $dates = [
+        'created_at', 'updated_at',
+    ];
 }

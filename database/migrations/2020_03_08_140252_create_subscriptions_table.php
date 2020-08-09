@@ -22,6 +22,8 @@ class CreateSubscriptionsTable extends Migration
             $table->uuid('plan_id');
             $table->foreign('plan_id')->references('id')->on('plans')->onUpdate('cascade')->onDelete('cascade');
 
+            $table->timestamp('expires_at');
+
             $table->timestamps();
         });
     }

@@ -6,17 +6,16 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use Jamesh\Uuid\HasUuid;
+
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasUuid;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
+    protected $guarded = [];
+
+    protected $dates = [
+        'created_at', 'updated_at',
     ];
 
     /**
