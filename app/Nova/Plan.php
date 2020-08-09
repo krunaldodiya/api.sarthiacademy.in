@@ -27,7 +27,7 @@ class Plan extends Resource
 
     public function title()
     {
-        return $this->category->name;
+        return $this->course->name;
     }
 
     /**
