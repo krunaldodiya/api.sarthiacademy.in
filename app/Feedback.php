@@ -2,9 +2,11 @@
 
 namespace App;
 
+use App\Traits\HasUuid;
+
 use Illuminate\Database\Eloquent\Model;
 
-class Subject extends Model
+class Feedback extends Model
 {
     use HasUuid;
 
@@ -14,8 +16,8 @@ class Subject extends Model
         'created_at', 'updated_at', 'expires_at'
     ];
 
-    public function chapters()
+    public function user()
     {
-        return $this->hasMany(Chapter::class)->orderBy('order');
+        return $this->belongsTo(User::class);
     }
 }

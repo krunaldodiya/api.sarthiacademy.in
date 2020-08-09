@@ -2,9 +2,13 @@
 
 namespace App;
 
+use App\Events\NotificationWasCreated;
+
+use App\Traits\HasUuid;
+
 use Illuminate\Database\Eloquent\Model;
 
-class Subject extends Model
+class Notification extends Model
 {
     use HasUuid;
 
@@ -14,8 +18,7 @@ class Subject extends Model
         'created_at', 'updated_at', 'expires_at'
     ];
 
-    public function chapters()
-    {
-        return $this->hasMany(Chapter::class)->orderBy('order');
-    }
+    protected $dispatchesEvents = [
+        'created' => NotificationWasCreated::class
+    ];
 }
