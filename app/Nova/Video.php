@@ -66,8 +66,7 @@ class Video extends Resource
 
             Text::make('Url'),
 
-            // Image::make('Thumbnail')->disk('public'),
-            Text::make('Thumbnail'),
+            Image::make('Thumbnail')->disk('public'),
 
             Text::make('Order')
                 ->sortable()

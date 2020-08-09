@@ -16,11 +16,6 @@ class Video extends Model
         'created_at', 'updated_at',
     ];
 
-    public function topic()
-    {
-        return $this->belongsTo(Topic::class);
-    }
-
     public function chapter()
     {
         return $this->belongsTo(Chapter::class);

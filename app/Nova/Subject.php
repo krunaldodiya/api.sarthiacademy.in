@@ -57,16 +57,15 @@ class Subject extends Resource
 
             Text::make('Name')
                 ->sortable()
-                ->creationRules('required', 'unique:categories,name')
-                ->updateRules('required', 'unique:categories,name,{{resourceId}}'),
+                ->creationRules('required', 'unique:subjects,name')
+                ->updateRules('required', 'unique:subjects,name,{{resourceId}}'),
 
-            // Image::make('Image')->disk('public'),
-            Text::make('Image'),
+            Image::make('Image')->disk('public'),
 
             Text::make('Order')
                 ->sortable()
-                ->creationRules('required', 'unique:categories,order')
-                ->updateRules('required', 'unique:categories,order,{{resourceId}}'),
+                ->creationRules('required', 'unique:subjects,order')
+                ->updateRules('required', 'unique:subjects,order,{{resourceId}}'),
         ];
     }
 

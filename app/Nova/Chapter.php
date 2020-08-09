@@ -63,8 +63,7 @@ class Chapter extends Resource
 
             Textarea::make('Description'),
 
-            // Image::make('Image')->disk('public'),
-            Text::make('Image'),
+            Image::make('Image')->disk('public'),
 
             Text::make('Order')
                 ->sortable()
