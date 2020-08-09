@@ -15,4 +15,9 @@ class Course extends Model
     protected $dates = [
         'created_at', 'updated_at',
     ];
+
+    public function plans()
+    {
+        return $this->hasMany(Plan::class);
+    }
 }
