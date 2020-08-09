@@ -57,8 +57,6 @@ class Video extends Resource
 
             BelongsTo::make('Chapter'),
 
-            BelongsTo::make('Topic'),
-
             Text::make('Title')
                 ->sortable()
                 ->creationRules('required', 'unique:videos,title')

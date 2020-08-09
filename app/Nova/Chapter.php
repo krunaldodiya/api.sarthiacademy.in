@@ -56,8 +56,6 @@ class Chapter extends Resource
 
             BelongsTo::make('Subject'),
 
-            HasMany::make('Topics'),
-
             Text::make('Name')
                 ->sortable()
                 ->creationRules('required', 'unique:chapters,name')
