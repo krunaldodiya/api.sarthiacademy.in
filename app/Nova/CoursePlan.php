@@ -6,19 +6,18 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Plan extends Resource
+class CoursePlan extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\Plan';
+    public static $model = 'App\CoursePlan';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -52,9 +51,7 @@ class Plan extends Resource
         return [
             ID::make()->sortable(),
 
-            BelongsTo::make('Category')->sortable(),
-
-            BelongsToMany::make('Institutes'),
+            BelongsTo::make('Course')->sortable(),
 
             Text::make('Name')->sortable()->rules('required'),
 
@@ -64,9 +61,7 @@ class Plan extends Resource
 
             Text::make('Price')->sortable()->rules('required'),
 
-            Text::make('Trial Days')->sortable()->rules('required'),
-
-            Date::make('Expires At')->sortable()->rules('required'),
+            Text::make('Validity')->sortable()->rules('required'),
         ];
     }
 
