@@ -15,4 +15,9 @@ class Chapter extends Model
     protected $dates = [
         'created_at', 'updated_at',
     ];
+
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class);
+    }
 }
