@@ -19,8 +19,8 @@ class CreateSubscriptionsTable extends Migration
             $table->uuid('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->uuid('plan_id');
-            $table->foreign('plan_id')->references('id')->on('plans')->onUpdate('cascade')->onDelete('cascade');
+            $table->uuid('course_plan_id');
+            $table->foreign('course_plan_id')->references('id')->on('course_plans')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });
