@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Topic;
 use App\User;
 use Illuminate\Support\Facades\Http;
 
