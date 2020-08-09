@@ -16,6 +16,9 @@ class CreatePlansTable extends Migration
         Schema::create('plans', function (Blueprint $table) {
             $table->uuid('id')->primary();
 
+            $table->uuid('course_id');
+            $table->foreign('course_id')->references('id')->on('courses')->onUpdate('cascade')->onDelete('cascade');
+
             $table->string("name");
             $table->text("description");
             $table->string("image");
