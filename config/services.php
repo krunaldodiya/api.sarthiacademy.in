@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'msg91' => [
+        'key' => env("MSG91_KEY"),
+        'route' => env("MSG91_ROUTE"),
+        'from' => env("MSG91_SENDER_ID")
+    ],
 ];

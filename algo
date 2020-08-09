@@ -1,0 +1,7 @@
+user belongsto institute
+institute hasmany users
+
+institute belongstomany plans
+plans belongstomany institute
+
+user hasmany subscriptions
