@@ -49,7 +49,7 @@ class Test extends Resource
 
             BelongsTo::make('Course'),
 
-            BelongsToMany::make('Questions', 'test_questions', Question::class)->searchable(),
+            BelongsToMany::make('Questions', 'questions', Question::class)->searchable(),
 
             Text::make('Total Questions'),
         ];
