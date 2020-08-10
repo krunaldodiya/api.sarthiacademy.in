@@ -36,6 +36,8 @@ class Test extends Resource
         'id',
     ];
 
+    public static $group = 'Course';
+
     /**
      * Get the fields displayed by the resource.
      *

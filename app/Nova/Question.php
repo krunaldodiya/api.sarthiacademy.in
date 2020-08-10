@@ -38,6 +38,8 @@ class Question extends Resource
         'id','question',
     ];
 
+    public static $group = 'Course';
+
     /**
      * Get the fields displayed by the resource.
      *

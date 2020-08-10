@@ -39,6 +39,8 @@ class Plan extends Resource
         'id',
     ];
 
+    public static $group = 'Subscription';
+
     /**
      * Get the fields displayed by the resource.
      *

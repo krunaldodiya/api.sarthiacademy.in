@@ -40,7 +40,7 @@ class Video extends Resource
         'id', 'title'
     ];
 
-    public static $group = 'Meta';
+    public static $group = 'Course';
 
     /**
      * Get the fields displayed by the resource.

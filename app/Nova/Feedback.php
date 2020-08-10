@@ -34,6 +34,8 @@ class Feedback extends Resource
         'id',
     ];
 
+    public static $group = 'Support';
+
     /**
      * Get the fields displayed by the resource.
      *
