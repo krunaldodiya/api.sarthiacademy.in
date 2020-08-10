@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTestQuestionsTable extends Migration
+class CreateQuestionTestTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,13 @@ class CreateTestQuestionsTable extends Migration
     public function up()
     {
         Schema::create('question_test', function (Blueprint $table) {
-            $table->primary(['test_id', 'question_id']);
-
-            $table->uuid('test_id');
-            $table->foreign('test_id')->references('id')->on('tests')->onUpdate('cascade')->onDelete('cascade');
+            $table->primary(['question_id', 'test_id']);
 
             $table->uuid('question_id');
             $table->foreign('question_id')->references('id')->on('questions')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->uuid('test_id');
+            $table->foreign('test_id')->references('id')->on('tests')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
