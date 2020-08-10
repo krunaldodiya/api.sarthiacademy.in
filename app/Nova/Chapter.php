@@ -58,6 +58,8 @@ class Chapter extends Resource
 
             HasMany::make('Videos')->sortable(),
 
+            HasMany::make('Question')->sortable(),
+
             Text::make('Name')
                 ->sortable()
                 ->creationRules('required', 'unique:chapters,name')
