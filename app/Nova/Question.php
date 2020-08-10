@@ -35,7 +35,7 @@ class Question extends Resource
      * @var array
      */
     public static $search = [
-        'id','question', 'chapters.title'
+        'id','question'
     ];
 
     public static $group = 'Course';
