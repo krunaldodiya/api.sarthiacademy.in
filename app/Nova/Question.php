@@ -27,7 +27,7 @@ class Question extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'question';
 
     /**
      * The columns that should be searched.
@@ -35,7 +35,7 @@ class Question extends Resource
      * @var array
      */
     public static $search = [
-        'id','question',
+        'id','question', 'chapter.title'
     ];
 
     public static $group = 'Course';
