@@ -52,8 +52,8 @@ class Test extends Resource
             BelongsTo::make('Course'),
 
             BelongsToMany::make('Questions', 'questions', Question::class)
-                ->display(function ($someModel) {
-                    return $someModel->chapter.name . ' - ' . $someModel->question;
+                ->display(function ($question) {
+                    return $question->chapter->name . ' - ' . $question->question;
                 })
                 ->searchable(),
 
