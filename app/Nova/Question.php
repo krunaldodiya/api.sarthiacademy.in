@@ -59,7 +59,12 @@ class Question extends Resource
 
             BelongsTo::make('Chapter'),
 
-            Textarea::make('question')->showOnIndex()->alwaysShow(),
+            Textarea::make('question')
+            ->display(function ($someModel) {
+                return $someModel->chapter.name . ' - ' . $someModel->question;
+            })
+            ->showOnIndex()
+            ->alwaysShow(),
 
             Text::make('option_1')->hideFromIndex(),
             Text::make('option_2')->hideFromIndex(),
