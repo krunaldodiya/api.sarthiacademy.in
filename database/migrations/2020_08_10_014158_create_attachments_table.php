@@ -19,7 +19,8 @@ class CreateAttachmentsTable extends Migration
             $table->uuid('course_id');
             $table->foreign('course_id')->references('id')->on('courses')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->integer("link")->nullable();
+            $table->string("title");
+            $table->string("link");
 
             $table->timestamps();
         });

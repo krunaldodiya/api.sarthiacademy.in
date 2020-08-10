@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\File;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -47,6 +48,8 @@ class Attachment extends Resource
             ID::make(__('ID'), 'id')->sortable(),
 
             BelongsTo::make('Course'),
+
+            Text::make('Title'),
 
             File::make('Link'),
         ];
