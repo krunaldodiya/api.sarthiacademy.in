@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\File;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -48,7 +48,7 @@ class Attachment extends Resource
 
             BelongsTo::make('Course'),
 
-            Text::make('Link'),
+            File::make('Link'),
         ];
     }
 
