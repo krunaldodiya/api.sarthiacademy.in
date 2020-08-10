@@ -26,7 +26,8 @@
         "laravel/telescope": "^3.5",
         "laravel/tinker": "^2.0",
         "madewithlove/laravel-nova-uuid-support": "^1.1",
-        "owenmelbz/nova-radio-field": "^1.0"
+        "owenmelbz/nova-radio-field": "^1.0",
+        "titasgailius/search-relations": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
