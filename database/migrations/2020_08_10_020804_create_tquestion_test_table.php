@@ -13,7 +13,7 @@ class CreateTestQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('test_questions', function (Blueprint $table) {
+        Schema::create('question_test', function (Blueprint $table) {
             $table->primary(['test_id', 'question_id']);
 
             $table->uuid('test_id');
@@ -31,6 +31,6 @@ class CreateTestQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('test_questions');
+        Schema::dropIfExists('question_test');
     }
 }
