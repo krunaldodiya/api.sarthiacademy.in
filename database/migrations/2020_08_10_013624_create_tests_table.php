@@ -19,7 +19,8 @@ class CreateTestsTable extends Migration
             $table->uuid('course_id');
             $table->foreign('course_id')->references('id')->on('courses')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->integer("total_questions")->nullable();
+            $table->string("title");
+            $table->integer("total_questions");
 
             $table->timestamps();
         });

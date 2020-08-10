@@ -51,6 +51,8 @@ class Test extends Resource
 
             BelongsToMany::make('Questions', 'questions', Question::class)->searchable(),
 
+            Text::make('Title'),
+
             Text::make('Total Questions'),
         ];
     }
