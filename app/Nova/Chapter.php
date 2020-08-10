@@ -58,7 +58,7 @@ class Chapter extends Resource
 
             HasMany::make('Videos')->sortable(),
 
-            HasMany::make('Question')->sortable(),
+            HasMany::make('Questions')->sortable(),
 
             Text::make('Name')
                 ->sortable()
