@@ -35,12 +35,12 @@ class Question extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'question', 'chapter.name'
+        'id', 'question'
     ];
 
-    // public static $searchRelations = [
-    //     'chapter' => ['name'],
-    // ];
+    public static $searchRelations = [
+        'chapter' => ['name'],
+    ];
 
     public static $group = 'Course';
 
