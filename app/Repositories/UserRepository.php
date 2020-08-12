@@ -3,40 +3,27 @@
 namespace App\Repositories;
 
 use App\Repositories\UserRepositoryInterface;
+
 use App\User;
-use Tymon\JWTAuth\Facades\JWTAuth;
+
 use Illuminate\Support\Str;
 
 class UserRepository implements UserRepositoryInterface
 {
     public function getUserById($user_id)
     {
-        return User::with('institute.plans', 'subscriptions.plan')->where(['id' => $user_id])->first();
+        return User::with('subscriptions.plan')->where(['id' => $user_id])->first();
     }
 
-    public function register($request)
+    public function getAuth($mobile, $country_id)
     {
-        $user = User::create([
-            'mobile' => $request->mobile,
-            'password' => bcrypt(Str::random(8))
-        ]);
+        $auth = User::firstOrCreate(['mobile' => $mobile, 'country_id' => $country_id]);
 
-        return $this->login($user, $request);
-    }
+        $user = $this->getUserById($auth->id);
 
-    public function login($user, $request)
-    {
-        $user = $this->getUserById($user->id);
-
-        if ($user->unique_id == null) {
-            $user->update([
-                'unique_id' => $request->unique_id,
-                'imei' => json_encode($request->imei),
-            ]);
-        }
-
-        $token = JWTAuth::fromUser($user);
-
-        return response(['token' => $token, 'user' => $user], 200);
+        return [
+            'user' => $user,
+            'token' => $user->createToken($user->id)->plainTextToken
+        ];
     }
 }

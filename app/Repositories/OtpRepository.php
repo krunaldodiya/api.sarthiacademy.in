@@ -2,46 +2,46 @@
 
 namespace App\Repositories;
 
-use Error;
-
-use App\Repositories\OtpRepositoryInterface;
 use Illuminate\Support\Facades\Http;
 
 class OtpRepository implements OtpRepositoryInterface
 {
-    private function generateUrl($type, $mobile, $otp, $message)
-    {
-        $base_url = "https://control.msg91.com/api";
+    public $base_url = "https://control.msg91.com/api";
 
+    private function generateUrl($type, $country, $mobile, $otp, $message)
+    {
         $authKey = env('MSG91_KEY');
 
+        $mwc = $country['phonecode'] . $mobile;
+
         if ($type == 'request_otp') {
-            return "$base_url/sendotp.php?authkey=$authKey&mobile=$mobile&otp=$otp&message=$message";
+            return "{$this->base_url}/sendotp.php?authkey=$authKey&mobile=$mwc&otp=$otp&message=$message";
         }
 
         if ($type == 'verify_otp') {
-            return "$base_url/verifyRequestOTP.php?authkey=$authKey&mobile=$mobile&otp=$otp";
+            return "{$this->base_url}/verifyRequestOTP.php?authkey=$authKey&mobile=$mwc&otp=$otp";
         }
     }
 
-    private function process($url)
+    public function requestOtp($country, $mobile, $otp, $message)
     {
-        $response = Http::get($url);
-
-        return $response->json();
+        try {
+            $url = $this->generateUrl("request_otp", $country, $mobile, $otp, $message);
+            $response = Http::get($url);
+            return $response->json();
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
-    public function requestOtp($mobile, $otp, $message)
+    public function verifyOtp($country, $mobile, $otp)
     {
-        $url = $this->generateUrl("request_otp", $mobile, $otp, $message);
-
-        return $this->process($url);
-    }
-
-    public function verifyOtp($mobile, $otp)
-    {
-        $url = $this->generateUrl("verify_otp", $mobile, $otp, null);
-
-        return $this->process($url);
+        try {
+            $url = $this->generateUrl("verify_otp", $country, $mobile, $otp, null);
+            $response = Http::get($url);
+            return $response->json();
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 }

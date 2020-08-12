@@ -4,53 +4,63 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RequestOtp;
 use App\Http\Requests\VerifyOtp;
+
 use App\Repositories\OtpRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
+
 use App\User;
+use App\Country;
+
+use Error;
 
 class OtpController extends Controller
 {
-    public $otpRepository;
-    public $userRepository;
+    public $otpRepositoryInterface;
+    public $userRepositoryInterface;
 
-    public function __construct(OtpRepositoryInterface $otpRepository, UserRepositoryInterface $userRepository)
+    public function __construct(OtpRepositoryInterface $otpRepositoryInterface, UserRepositoryInterface $userRepositoryInterface)
     {
-        $this->otpRepository = $otpRepository;
-        $this->userRepository = $userRepository;
+        $this->otpRepositoryInterface = $otpRepositoryInterface;
+        $this->userRepositoryInterface = $userRepositoryInterface;
     }
 
     public function requestOtp(RequestOtp $request)
     {
-        $mobile_cc = "91{$request->mobile}";
+        $mobile = $request->mobile;
+
+        $country_id = $request->country_id;
+
+        $country = Country::find($country_id);
+
         $otp = mt_rand(1000, 9999);
-        $message = "$otp is Your otp for phone verification.";
 
-        $response = $this->otpRepository->requestOtp($mobile_cc, $otp, $message);
+        $message = "$otp is Your otp for phone verification";
 
-        if ($response['type'] === 'success') {
-            return response(['otp' => $otp], 200);
+        $requestOtp = $this->otpRepositoryInterface->requestOtp($country, $mobile, $otp, $message);
+
+        if ($requestOtp['type'] === "error") {
+            return response(["success" => false, "error" => $requestOtp['message']], 400);
         }
 
-        return response(['errors' => ['otp' => $response['message']]], 401);
+        return response(["success" => true, "otp" => $otp], 200);
     }
 
     public function verifyOtp(VerifyOtp $request)
     {
-        $mobile_cc = "91{$request->mobile}";
-        $otp = $request->otp;
+        $mobile = $request->mobile;
 
-        $response = $this->otpRepository->verifyOtp($mobile_cc, $otp);
+        $country_id = $request->country_id;
 
-        if ($response['type'] === 'success') {
-            $user = User::where(['mobile' => $request->mobile])->first();
+        $country = Country::find($country_id);
 
-            if ($user) {
-                return $this->userRepository->login($user, $request);
-            }
+        $verifyOtp = $this->otpRepositoryInterface->verifyOtp($country, $request->mobile, $request->otp);
 
-            return $this->userRepository->register($request);
+        if ($verifyOtp['type'] === "error") {
+            return response(["success" => false, "error" => $verifyOtp['message']], 400);
         }
 
-        return response(['errors' => ['otp' => $response['message']]], 401);
+        $auth = $this->userRepositoryInterface->getAuth($mobile, $country_id);
+
+        return response(["success" => true, "token" => $auth['token'], "user" => $auth['user']], 200);
     }
 }
