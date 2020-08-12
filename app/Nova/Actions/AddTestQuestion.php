@@ -11,6 +11,8 @@ use Laravel\Nova\Fields\ActionFields;
 
 use Laravel\Nova\Fields\Text;
 
+use App\Test;
+
 class AddTestQuestion extends Action
 {
     use InteractsWithQueue, Queueable;
@@ -26,7 +28,13 @@ class AddTestQuestion extends Action
     {
         $quiz = $models[0];
 
-        return Action::message("Quiz has been joined");
+        $question_id = $fields->question_id;
+
+        $test = Test::find($question_id);
+
+        $test->questions()->attach($models);
+
+        return Action::message("Questions have been added");
     }
 
     /**
