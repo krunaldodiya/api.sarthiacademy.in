@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 
-use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Select;
 
 use App\Test;
 
@@ -44,8 +44,11 @@ class AddTestQuestion extends Action
      */
     public function fields()
     {
+        $tests = Test::pluck('title', 'id');
+
         return [
-            Text::make("Test ID")
+            Select::make('Test ID', 'test_id')
+                ->options($tests),
         ];
     }
 }

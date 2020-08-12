@@ -46,7 +46,7 @@ class Subscription extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable()->onlyOnDetail(),
+            ID::make(__('ID'), 'id')->sortable(),
 
             BelongsTo::make('User'),
 

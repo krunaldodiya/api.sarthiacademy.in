@@ -42,7 +42,7 @@ class User extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
+            ID::make(__('ID'), 'id')->sortable(),
 
             Gravatar::make()->maxWidth(50),
 

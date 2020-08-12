@@ -43,7 +43,7 @@ class Setting extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->onlyOnDetail(),
+            ID::make(__('ID'), 'id')->sortable(),
 
             Text::make('description'),
 
