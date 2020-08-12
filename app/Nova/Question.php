@@ -11,6 +11,8 @@ use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 
+use App\Nova\Actions\AddTestQuestion;
+
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Question extends Resource
@@ -111,6 +113,8 @@ class Question extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new AddTestQuestion()
+        ];
     }
 }
