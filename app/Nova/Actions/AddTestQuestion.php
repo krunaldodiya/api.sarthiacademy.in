@@ -15,8 +15,6 @@ class AddTestQuestion extends Action
 {
     use InteractsWithQueue, Queueable;
 
-    public $onlyOnDetail = true;
-
     /**
      * Perform the action on the given models.
      *
