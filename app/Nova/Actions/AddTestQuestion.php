@@ -28,9 +28,9 @@ class AddTestQuestion extends Action
     {
         $quiz = $models[0];
 
-        $question_id = $fields->question_id;
+        $test_id = $fields->test_id;
 
-        $test = Test::find($question_id);
+        $test = Test::find($test_id);
 
         $test->questions()->attach($models);
 
