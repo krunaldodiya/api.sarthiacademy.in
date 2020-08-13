@@ -5,6 +5,5 @@ namespace App\Repositories;
 interface UserRepositoryInterface
 {
     public function getUserById($user_id);
-    public function login($user, $request);
-    public function register($request);
+    public function getAuth($mobile, $country_id)
 }
