@@ -1,2 +1,2 @@
-id,email,email_verified_at,mobile,mobile_verified_at,password,name,dob,gender,avatar,city,unique_id,account_status,status,remember_token,created_at,updated_at
-a8854419-283a-4971-9147-230defce13c7,admin@sarthiacademy.in,,9426726815,,$2y$10$9qSwF.kSS9N9P/V8A0L7.eg8FQiT15ALknYkK4z.RpU8laZqLeDn6,,,Male,,,,Approved,f,zD31NiRlbqqxlE0EO0hjUfzmy74wZPTdkcrzldONhl0I132oHl0Y1RXwUWKW,,
+id,email,email_verified_at,mobile,mobile_verified_at,username,password,name,dob,gender,avatar,city,country_id,unique_id,account_status,status,remember_token,created_at,updated_at
+32761df4-b097-4528-b7f2-c16d68a3bcec,admin@sarthiacademy.in,,9426726815,,sarthi,$2y$10$E/M21k/xcNyGlDI0.tLRUO5DtemC91RN0UzsCTEk.YCBKv2hW4Zqi,,01-01-1990,Male,,,e1c417cf-550a-4457-b744-1db7fd5c86fb,,Approved,f,,2020-08-13 05:30:31,2020-08-13 05:30:31

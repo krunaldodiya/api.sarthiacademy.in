@@ -35,4 +35,30 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $appends = ['setting'];
+
+    public function getSettingAttribute()
+    {
+        $settings = Setting::all();
+
+        return $settings->reduce(function ($carry, $item) {
+            return array_merge($carry, [$item->key => $item->value]);
+        }, []);
+    }
+
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class);
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    public function device_tokens()
+    {
+        return $this->hasMany(DeviceToken::class);
+    }
 }
