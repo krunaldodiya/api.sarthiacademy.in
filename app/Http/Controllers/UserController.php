@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ChangePassword;
-use App\Http\Requests\EditProfile;
-use App\Http\Requests\UserInfo;
+use App\Http\Requests\UpdateProfile;
 use App\Http\Requests\SetToken;
 
 use App\Repositories\UserRepositoryInterface;
@@ -32,7 +31,7 @@ class UserController extends Controller
         return compact('user');
     }
 
-    public function getUserById(UserInfo $request)
+    public function getUserById(Request $request)
     {
         $user = $this->userRepositoryInterface->getUserById($request->user_id);
 
@@ -52,20 +51,7 @@ class UserController extends Controller
         return compact('wallet');
     }
 
-    public function changePassword(ChangePassword $request)
-    {
-        $user = auth()->user();
-
-        try {
-            $user = $user->update(['password' => bcrypt($request->password)]);
-
-            return response(['success' => true], 200);
-        } catch (\Throwable $th) {
-            throw $th;
-        }
-    }
-
-    public function editProfile(EditProfile $request)
+    public function updateProfile(UpdateProfile $request)
     {
         $user = auth()->user();
 
