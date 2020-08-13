@@ -7,10 +7,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 use Jamesh\Uuid\HasUuid;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasUuid;
+    use Notifiable, HasApiTokens, HasUuid;
 
     protected $guarded = [];
 
