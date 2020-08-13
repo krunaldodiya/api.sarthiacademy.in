@@ -14,27 +14,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::middleware('guest:api')->post('/otp/request', 'OtpController@requestOtp');
 Route::middleware('guest:api')->post('/otp/verify', 'OtpController@verifyOtp');
 
-Route::middleware('auth:api')->post('/upload/avatar', 'UserController@uploadAvatar');
+Route::middleware('auth:sanctum')->post('/upload/avatar', 'UserController@uploadAvatar');
 
-Route::middleware('auth:api')->post('/feedback/send', 'FeedbackController@send');
+Route::middleware('auth:sanctum')->post('/feedback/send', 'FeedbackController@send');
 
-Route::middleware('auth:api')->get('/categories/all', 'CategoryController@getCategories');
+Route::middleware('auth:sanctum')->get('/categories/all', 'CategoryController@getCategories');
 
-Route::middleware('auth:api')->get('/notifications/all', 'NotificationController@getNotifications');
-Route::middleware('auth:api')->post('/notifications/read', 'NotificationController@markAsRead');
+Route::middleware('auth:sanctum')->get('/notifications/all', 'NotificationController@getNotifications');
+Route::middleware('auth:sanctum')->post('/notifications/read', 'NotificationController@markAsRead');
 
-Route::middleware('auth:api')->post('/users/token', 'UserController@setToken');
-Route::middleware('auth:api')->post('/users/update', 'UserController@updateProfile');
-Route::middleware('auth:api')->get('/users/me', 'UserController@me');
+Route::middleware('auth:sanctum')->post('/users/token', 'UserController@setToken');
+Route::middleware('auth:sanctum')->post('/users/update', 'UserController@updateProfile');
+Route::middleware('auth:sanctum')->get('/users/me', 'UserController@me');
 
-Route::middleware('auth:api')->post('/subscriptions/update', 'SubscriptionController@update');
+Route::middleware('auth:sanctum')->post('/subscriptions/update', 'SubscriptionController@update');
 
 Route::get('/test/users', 'TestController@testUsers');
 Route::get('/test/auth', 'TestController@testAuth');
