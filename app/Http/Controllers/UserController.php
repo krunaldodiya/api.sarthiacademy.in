@@ -38,25 +38,16 @@ class UserController extends Controller
         return compact('user');
     }
 
-    public function getWallet(Request $request)
-    {
-        $wallet = Wallet::with([
-            'transactions' => function ($query) {
-                return $query->where('status', 'success')->orderBy('created_at', 'desc');
-            }
-        ])
-            ->where(['user_id' => auth()->id()])
-            ->first();
-
-        return compact('wallet');
-    }
-
     public function updateProfile(UpdateProfile $request)
     {
         $user = auth()->user();
 
+        $data = $request->all();
+
+        $data['status'] = true;
+
         try {
-            $update = $user->update($request->all());
+            $update = $user->update($data);
 
             $user = $this->userRepositoryInterface->getUserById($user->id);
 
