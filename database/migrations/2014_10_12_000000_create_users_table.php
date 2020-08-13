@@ -22,13 +22,17 @@ class CreateUsersTable extends Migration
             $table->string('mobile')->unique();
             $table->timestamp('mobile_verified_at')->nullable();
 
-            $table->string('password');
+            $table->string('username')->nullable()->unique();
+            $table->string('password')->nullable();
 
             $table->string('name')->nullable();
             $table->string('dob')->default("01-01-1990");
             $table->enum('gender', ['Male', 'Female'])->default('Male');
             $table->string('avatar')->nullable();
             $table->text('city')->nullable();
+
+            $table->uuid('country_id');
+            $table->foreign('country_id')->references('id')->on('countries')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('unique_id')->nullable();
 
