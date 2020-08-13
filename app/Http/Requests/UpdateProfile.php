@@ -19,8 +19,7 @@ class UpdateProfile extends FormRequest
             'email' => 'required|email',
             'dob' => 'required',
             'gender' => 'required',
-            'school' => 'required',
-            'class' => 'required',
+            'city' => 'required',
         ];
     }
 
