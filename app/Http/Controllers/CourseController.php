@@ -18,6 +18,23 @@ class CourseController extends Controller
         return response(['courses' => $courses], 200);
     }
 
+    public function getCourseMaterials(Request $request)
+    {
+        $course = Course::with('videos')->find($request->course_id);
+
+        $subject_id = $course->videos->pluck('subject_id');
+        $chapter_id = $course->videos->pluck('chapter_id');
+        $video_id = $course->videos->pluck('id');
+
+        $subjects = Subject::with(['chapters' => function ($query) use ($subject_id, $chapter_id, $video_id) {
+            return $query->with(['videos' => function ($query) use ($subject_id, $chapter_id, $video_id) {
+                return $query->whereIn('id', $video_id);
+            }])->whereIn('id', $chapter_id);
+        }])->whereIn('id', $subject_id)->get();
+
+        return response(['subjects' => $subjects], 200);
+    }
+
     public function getMaterials(Request $request)
     {
         $course = Course::with('videos')->find($request->course_id);
