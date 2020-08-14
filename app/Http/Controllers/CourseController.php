@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Course;
+use App\Subject;
+use App\Chapter;
+use App\Video;
 
 class CourseController extends Controller
 {
