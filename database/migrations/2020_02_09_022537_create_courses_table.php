@@ -20,6 +20,8 @@ class CreateCoursesTable extends Migration
             $table->text("description");
             $table->string("image");
 
+            $table->integer("order")->nullable();
+
             $table->timestamps();
         });
     }
