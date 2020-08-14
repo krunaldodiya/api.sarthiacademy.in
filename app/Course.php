@@ -21,9 +21,9 @@ class Course extends Model
         return $this->hasMany(Plan::class);
     }
 
-    public function videos()
+    public function chapters()
     {
-        return $this->hasMany(Video::class);
+        return $this->belongsToMany(Chapter::class);
     }
 
     public function tests()
