@@ -31,16 +31,6 @@ class Course extends Model
         return $this->hasMany(Attachment::class);
     }
 
-    public function subjects()
-    {
-        return $this->belongsToMany(Subject::class)->orderBy('order');
-    }
-
-    public function chapters()
-    {
-        return $this->belongsToMany(Chapter::class)->orderBy('order');
-    }
-
     public function videos()
     {
         return $this->belongsToMany(Video::class, 'course_videos')->orderBy('order');
