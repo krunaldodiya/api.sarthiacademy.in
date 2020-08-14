@@ -20,4 +20,14 @@ class Course extends Model
     {
         return $this->hasMany(Plan::class);
     }
+
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
+    }
+
+    public function tests()
+    {
+        return $this->hasMany(Test::class);
+    }
 }
