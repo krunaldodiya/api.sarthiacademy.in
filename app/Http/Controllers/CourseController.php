@@ -14,4 +14,13 @@ class CourseController extends Controller
 
         return response(['courses' => $courses], 200);
     }
+
+    public function getMaterials(Request $request)
+    {
+        $course = Course::with('videos')->find($request->course_id);
+
+        $subjects = $course->videos->pluck('subject_id');
+
+        return response(['subjects' => $subjects], 200);
+    }
 }
