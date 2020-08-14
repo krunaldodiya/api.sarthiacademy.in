@@ -13,7 +13,7 @@ class CreateCourseSubjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('course_subjects', function (Blueprint $table) {
+        Schema::table('course_subjects', function (Blueprint $table) {
             $table->primary(['course_id', 'subject_id']);
 
             $table->uuid('course_id');
@@ -31,6 +31,8 @@ class CreateCourseSubjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('question_test');
+        Schema::table('course_subjects', function (Blueprint $table) {
+            //
+        });
     }
 }
