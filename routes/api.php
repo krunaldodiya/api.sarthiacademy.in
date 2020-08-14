@@ -3,10 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::middleware('guest:api')->post('/otp/request', 'OtpController@requestOtp');
 Route::middleware('guest:api')->post('/otp/verify', 'OtpController@verifyOtp');
 
@@ -25,7 +21,3 @@ Route::middleware('auth:sanctum')->post('/users/update', 'UserController@updateP
 Route::middleware('auth:sanctum')->get('/users/me', 'UserController@me');
 
 Route::middleware('auth:sanctum')->post('/subscriptions/update', 'SubscriptionController@update');
-
-Route::get('/test/users', 'TestController@testUsers');
-Route::get('/test/auth', 'TestController@testAuth');
-Route::get('/test/notification', 'TestController@testNotification');
