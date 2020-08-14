@@ -16,7 +16,7 @@ class Video extends Model
         'created_at', 'updated_at',
     ];
 
-    public function course()
+    public function courses()
     {
         return $this->belongsTo(Course::class, 'course_videos');
     }
