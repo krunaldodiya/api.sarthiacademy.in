@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -54,6 +55,8 @@ class Subject extends Resource
             ID::make(__('ID'), 'id')->sortable(),
 
             HasMany::make('Chapters')->sortable(),
+
+            BelongsToMany::make('Courses')->sortable(),
 
             Text::make('Name')
                 ->sortable()
