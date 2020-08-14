@@ -14,8 +14,13 @@ class CreateCourseVideosTable extends Migration
     public function up()
     {
         Schema::create('course_videos', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->primary(['course_id', 'video_id']);
+
+            $table->uuid('course_id');
+            $table->foreign('course_id')->references('id')->on('courses')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->uuid('video_id');
+            $table->foreign('video_id')->references('id')->on('videos')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
