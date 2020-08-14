@@ -32,7 +32,7 @@ class CreateCourseVideosTable extends Migration
     public function down()
     {
         Schema::table('course_videos', function (Blueprint $table) {
-            //
+            Schema::dropIfExists('course_videos');
         });
     }
 }
