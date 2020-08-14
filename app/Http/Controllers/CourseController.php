@@ -10,7 +10,7 @@ class CourseController extends Controller
 {
     public function getCourses(Request $request)
     {
-        $courses = Course::with('plans', 'videos.chapter.subject', 'tests')->get();
+        $courses = Course::with('plans', 'tests')->get();
 
         return response(['courses' => $courses], 200);
     }
