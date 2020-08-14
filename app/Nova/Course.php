@@ -50,7 +50,7 @@ class Course extends Resource
 
             HasMany::make('Plans')->sortable(),
 
-            BelongsToMany::make('Videos', 'videos', 'course_videos', Video::class)->sortable(),
+            BelongsToMany::make('Videos', 'videos', Video::class, 'course_videos')->sortable(),
 
             Text::make('Name')->sortable()->rules('required'),
 
