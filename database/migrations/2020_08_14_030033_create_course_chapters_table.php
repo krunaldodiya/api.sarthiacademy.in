@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCourseVideosTable extends Migration
+class CreateCourseChaptersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateCourseVideosTable extends Migration
      */
     public function up()
     {
-        Schema::table('course_videos', function (Blueprint $table) {
-            $table->primary(['course_id', 'video_id']);
+        Schema::table('course_chapters', function (Blueprint $table) {
+            $table->primary(['course_id', 'chapter_id']);
 
             $table->uuid('course_id');
             $table->foreign('course_id')->references('id')->on('courses')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->uuid('video_id');
-            $table->foreign('video_id')->references('id')->on('videos')->onUpdate('cascade')->onDelete('cascade');
+            $table->uuid('chapter_id');
+            $table->foreign('chapter_id')->references('id')->on('chapters')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -31,6 +31,8 @@ class CreateCourseVideosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('course_videos');
+        Schema::table('course_chapters', function (Blueprint $table) {
+            Schema::dropIfExists('course_chapters');
+        });
     }
 }
