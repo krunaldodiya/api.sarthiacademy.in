@@ -26,25 +26,23 @@ class OtpController extends Controller
 
     public function requestOtp(RequestOtp $request)
     {
-        return ['status' => 'hello'];
+        $mobile = $request->mobile;
 
-        // $mobile = $request->mobile;
+        $country_id = $request->country_id;
 
-        // $country_id = $request->country_id;
+        $country = Country::find($country_id);
 
-        // $country = Country::find($country_id);
+        $otp = mt_rand(1000, 9999);
 
-        // $otp = mt_rand(1000, 9999);
+        $message = "$otp is Your otp for phone verification";
 
-        // $message = "$otp is Your otp for phone verification";
+        $requestOtp = $this->otpRepositoryInterface->requestOtp($country, $mobile, $otp, $message);
 
-        // $requestOtp = $this->otpRepositoryInterface->requestOtp($country, $mobile, $otp, $message);
+        if ($requestOtp['type'] === "error") {
+            return response(["success" => false, "error" => $requestOtp['message']], 400);
+        }
 
-        // if ($requestOtp['type'] === "error") {
-        //     return response(["success" => false, "error" => $requestOtp['message']], 400);
-        // }
-
-        // return response(["success" => true, "otp" => $otp], 200);
+        return response(["success" => true, "otp" => $otp], 200);
     }
 
     public function verifyOtp(VerifyOtp $request)
