@@ -32,4 +32,27 @@ class CourseController extends Controller
             'videos' => Video::whereIn('id', $video_id)->get(),
         ], 200);
     }
+
+    public function getSubjects(Request $request)
+    {
+        $course = Course::with('videos')->find($request->course_id);
+
+        $subjects = Subject::whereIn('id', $course->videos->pluck('subject_id'))->get();
+
+        return response(['subjects' => $subjects], 200);
+    }
+
+    public function getChapters(Request $request)
+    {
+        $chapters = Chapter::where('subject_id', $request->subject_id)->get();
+
+        return response(['chapters' => $chapters], 200);
+    }
+
+    public function getVideos(Request $request)
+    {
+        $videos = Video::where('chapter_id', $request->chapter_id)->get();
+
+        return response(['videos' => $videos], 200);
+    }
 }
