@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCourseSubjectTable extends Migration
+class CreateCourseSubjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateCourseSubjectTable extends Migration
      */
     public function up()
     {
-        Schema::create('course_subject', function (Blueprint $table) {
+        Schema::create('course_subjects', function (Blueprint $table) {
             $table->primary(['course_id', 'subject_id']);
 
             $table->uuid('course_id');
             $table->foreign('course_id')->references('id')->on('courses')->onUpdate('cascade')->onDelete('cascade');
-
 
             $table->uuid('subject_id');
             $table->foreign('subject_id')->references('id')->on('subjects')->onUpdate('cascade')->onDelete('cascade');

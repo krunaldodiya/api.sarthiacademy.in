@@ -21,11 +21,6 @@ class Course extends Model
         return $this->hasMany(Plan::class);
     }
 
-    public function subjects()
-    {
-        return $this->belongsToMany(Subject::class)->orderBy('order');
-    }
-
     public function tests()
     {
         return $this->hasMany(Test::class);
@@ -34,5 +29,20 @@ class Course extends Model
     public function attachments()
     {
         return $this->hasMany(Attachment::class);
+    }
+
+    public function subjects()
+    {
+        return $this->belongsToMany(Subject::class)->orderBy('order');
+    }
+
+    public function chapters()
+    {
+        return $this->belongsToMany(Chapter::class)->orderBy('order');
+    }
+
+    public function videos()
+    {
+        return $this->belongsToMany(Video::class)->orderBy('order');
     }
 }
