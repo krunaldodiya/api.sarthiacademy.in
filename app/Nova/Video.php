@@ -53,6 +53,8 @@ class Video extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
 
+            BelongsToMany::make('Courses', 'courses', Course::class)->sortable(),
+
             BelongsTo::make('Subject'),
 
             BelongsTo::make('Chapter'),

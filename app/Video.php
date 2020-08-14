@@ -18,7 +18,7 @@ class Video extends Model
 
     public function course()
     {
-        return $this->belongsTo(Course::class);
+        return $this->belongsTo(Course::class, 'course_videos');
     }
 
     public function chapter()
