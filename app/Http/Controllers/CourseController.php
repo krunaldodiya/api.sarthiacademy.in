@@ -19,8 +19,14 @@ class CourseController extends Controller
     {
         $course = Course::with('videos')->find($request->course_id);
 
-        $subjects = $course->videos->pluck('subject_id');
+        $subject_id = $course->videos->pluck('subject_id');
+        $chapter_id = $course->videos->pluck('chapter_id');
+        $video_id = $course->videos->pluck('id');
 
-        return response(['subjects' => $subjects], 200);
+        return response([
+            'subjects' => Subject::whereIn('id', $subject_id)->get(),
+            'chapters' => Chapter::whereIn('id', $chapter_id)->get(),
+            'videos' => Video::whereIn('id', $video_id)->get(),
+        ], 200);
     }
 }
