@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChapterCourseTable extends Migration
+class CreateCourseSubjectTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateChapterCourseTable extends Migration
      */
     public function up()
     {
-        Schema::create('chapter_course', function (Blueprint $table) {
-            $table->primary(['chapter_id', 'course_id']);
-
-            $table->uuid('chapter_id');
-            $table->foreign('chapter_id')->references('id')->on('chapters')->onUpdate('cascade')->onDelete('cascade');
+        Schema::create('course_subject', function (Blueprint $table) {
+            $table->primary(['course_id', 'subject_id']);
 
             $table->uuid('course_id');
             $table->foreign('course_id')->references('id')->on('courses')->onUpdate('cascade')->onDelete('cascade');
+
+
+            $table->uuid('subject_id');
+            $table->foreign('subject_id')->references('id')->on('subjects')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

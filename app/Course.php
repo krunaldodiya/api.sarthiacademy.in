@@ -21,9 +21,9 @@ class Course extends Model
         return $this->hasMany(Plan::class);
     }
 
-    public function chapters()
+    public function subjects()
     {
-        return $this->belongsToMany(Chapter::class);
+        return $this->belongsToMany(Subject::class);
     }
 
     public function tests()
