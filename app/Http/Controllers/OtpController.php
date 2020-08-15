@@ -59,6 +59,6 @@ class OtpController extends Controller
             return response(["success" => false, "error" => $verifyOtp['message']], 400);
         }
 
-        return $this->userRepositoryInterface->getAuth($request);
+        return $this->userRepositoryInterface->checkAuthentication($request);
     }
 }
