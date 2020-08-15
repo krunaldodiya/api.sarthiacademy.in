@@ -15,15 +15,24 @@ class UserRepository implements UserRepositoryInterface
         return User::with('subscriptions.plan')->where(['id' => $user_id])->first();
     }
 
-    public function getAuth($mobile, $country_id)
+    public function authenticate($user, $request)
     {
-        $auth = User::firstOrCreate(['mobile' => $mobile, 'country_id' => $country_id]);
+        $user = $this->getUserById($user->id);
 
-        $user = $this->getUserById($auth->id);
+        if ($user->unique_id == null) {
+            $user->update(['unique_id' => $request->unique_id]);
+        }
 
-        return [
+        return response([
             'user' => $user,
             'token' => $user->createToken($user->id)->plainTextToken
-        ];
+        ], 200);
+    }
+
+    public function checkAuthentication($request)
+    {
+        $user = User::firstOrCreate(['mobile' => $mobile, 'country_id' => $country_id]);
+
+        return $this->login($user, $request);
     }
 }
