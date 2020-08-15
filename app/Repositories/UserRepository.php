@@ -36,6 +36,6 @@ class UserRepository implements UserRepositoryInterface
             'country_id' => $request->country_id
         ]);
 
-        return $this->login($user, $request);
+        return $this->authenticate($user, $request);
     }
 }
