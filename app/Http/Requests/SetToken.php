@@ -15,14 +15,14 @@ class SetToken extends FormRequest
     public function rules()
     {
         return [
-            'device_token' => 'required'
+            'token' => 'required'
         ];
     }
 
     public function messages()
     {
         return [
-            'device_token.required' => 'Device token is required',
+            'token.required' => 'Device token is required',
         ];
     }
 

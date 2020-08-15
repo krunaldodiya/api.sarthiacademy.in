@@ -8,7 +8,7 @@ use App\Http\Requests\SetToken;
 
 use App\Repositories\UserRepositoryInterface;
 
-use App\Wallet;
+use App\User;
 use App\DeviceToken;
 
 use Error;
