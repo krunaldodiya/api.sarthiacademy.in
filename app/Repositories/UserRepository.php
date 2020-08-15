@@ -31,7 +31,10 @@ class UserRepository implements UserRepositoryInterface
 
     public function checkAuthentication($request)
     {
-        $user = User::firstOrCreate(['mobile' => $mobile, 'country_id' => $country_id]);
+        $user = User::firstOrCreate([
+            'mobile' => $request->mobile,
+            'country_id' => $request->country_id
+        ]);
 
         return $this->login($user, $request);
     }
