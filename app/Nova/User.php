@@ -44,11 +44,15 @@ class User extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
 
-            Gravatar::make()->maxWidth(50),
+            Gravatar::make(),
 
             Text::make('Name')
                 ->sortable()
                 ->rules('required', 'max:255'),
+
+            Text::make('Mobile')
+                ->sortable()
+                ->rules('required', 'max:254'),
 
             Text::make('Email')
                 ->sortable()
@@ -60,6 +64,33 @@ class User extends Resource
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
+
+            Text::make('Gender')
+                ->sortable()
+                ->rules('required', 'max:254'),
+
+            Text::make('Date of Birth', 'dob')
+                ->sortable()
+                ->rules('required', 'max:254'),
+
+            Text::make('Unique ID', 'unique_id')->sortable(),
+
+            Text::make('City')
+                ->sortable()
+                ->rules('required', 'max:254'),
+
+            HasMany::make("Subscriptions"),
+
+            HasMany::make("Device Tokens", "device_tokens", DeviceToken::class),
+
+            Date::make('Joined On', "created_at")
+                ->exceptOnForms()
+                ->resolveUsing(function ($date) {
+                    return $date->format('d/m/Y h:m A');
+                })
+                ->sortable(),
+
+            Boolean::make('Status')
         ];
     }
 
