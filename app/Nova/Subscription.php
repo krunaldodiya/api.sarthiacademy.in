@@ -52,8 +52,6 @@ class Subscription extends Resource
 
             BelongsTo::make('Plan'),
 
-            BelongsTo::make('Institute'),
-
             Text::make('Payment Id')->rules('required', 'max:255'),
 
             Date::make('Expires At')->sortable()->rules('required'),

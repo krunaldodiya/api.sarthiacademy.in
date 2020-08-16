@@ -34,9 +34,4 @@ class Subscription extends Model
     {
         return $this->belongsTo(Plan::class);
     }
-
-    public function institute()
-    {
-        return $this->belongsTo(Institute::class);
-    }
 }
