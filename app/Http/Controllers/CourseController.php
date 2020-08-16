@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 
 use App\Course;
 use App\Subject;
-use App\Chapter;
-use App\Video;
+use App\Test;
+use App\Attachment;
 
 class CourseController extends Controller
 {
     public function getCourses(Request $request)
     {
-        $courses = Course::with('plans', 'tests', 'attachments')->get();
+        $courses = Course::with('plans')->get();
 
         return response(['courses' => $courses], 200);
     }
@@ -33,5 +33,19 @@ class CourseController extends Controller
         }])->whereIn('id', $subject_id)->get();
 
         return response(['subjects' => $subjects], 200);
+    }
+
+    public function getCourseTests(Request $request)
+    {
+        $tests = Test::where('course_id', $request->course_id)->get();
+
+        return response(['tests' => $tests], 200);
+    }
+
+    public function getCourseAttachments(Request $request)
+    {
+        $attachments = Attachment::where('course_id', $request->course_id)->get();
+
+        return response(['attachments' => $attachments], 200);
     }
 }
