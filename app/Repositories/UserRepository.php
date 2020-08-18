@@ -12,7 +12,7 @@ class UserRepository implements UserRepositoryInterface
 {
     public function getUserById($user_id)
     {
-        return User::with('subscriptions.plan')->where(['id' => $user_id])->first();
+        return User::with('subscriptions.plan.course')->where(['id' => $user_id])->first();
     }
 
     public function authenticate($user, $request)
