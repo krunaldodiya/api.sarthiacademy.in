@@ -39,13 +39,15 @@ class User extends Authenticatable
 
     protected $appends = ['setting'];
 
-    public function getAvatarAttribute()
+    public function getAvatarAttribute($avatar)
     {
-        if ($this->avatar !== null) {
-            return $this->avatar;
-        }
+        return $avatar;
 
-        return "default.png";
+        // if ($this->avatar !== null) {
+        //     return $this->avatar;
+        // }
+
+        // return "default.png";
     }
 
     public function getSettingAttribute()
