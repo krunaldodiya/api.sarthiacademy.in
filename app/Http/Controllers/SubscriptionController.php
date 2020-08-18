@@ -25,7 +25,8 @@ class SubscriptionController extends Controller
         $plan = Plan::find($request->plan_id);
 
         $payment_id = $request->payment_id;
-        $expires_at = $plan->expires_at;
+        $validity = $plan->validity;
+        $expires_at = now()->addMonths($validity);
 
         Subscription::updateOrCreate([
             'user_id' => $user->id,
