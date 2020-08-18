@@ -36,7 +36,9 @@ class SubscriptionController extends Controller
 
         $validity = $plan->validity;
 
-        $expires_at = now()->addMonths($validity);
+        $expires_at = $current_subscription
+            ? $current_subscription->expires_at->addMonths($validity)
+            : now()->addMonths($validity);
 
         Subscription::updateOrCreate([
             'user_id' => $user->id,
