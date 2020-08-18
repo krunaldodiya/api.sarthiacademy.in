@@ -24,7 +24,7 @@ class SubscriptionController extends Controller
 
         $plan = Plan::find($request->plan_id);
 
-        $current_subscription = $user->subscriptions()->where('plan_id', $request->plan_id);
+        $current_subscription = $user->subscriptions->where('plan_id', $request->plan_id);
 
         return $current_subscription;
 
