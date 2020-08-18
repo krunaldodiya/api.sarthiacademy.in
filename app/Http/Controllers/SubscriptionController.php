@@ -9,6 +9,8 @@ use App\Subscription;
 
 use Illuminate\Http\Request;
 
+use Error;
+
 class SubscriptionController extends Controller
 {
     public $userRepository;
