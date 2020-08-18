@@ -26,8 +26,6 @@ class SubscriptionController extends Controller
 
         $current_subscription = $user->subscriptions->where('plan_id', $request->plan_id)->first();
 
-        return $current_subscription;
-
         if ($current_subscription && $current_subscription->status === "Active") {
             throw new Error("Subscription is already Active");
         }
