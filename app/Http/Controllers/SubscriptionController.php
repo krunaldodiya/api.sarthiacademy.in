@@ -24,8 +24,16 @@ class SubscriptionController extends Controller
 
         $plan = Plan::find($request->plan_id);
 
+        $current_subscription = $user->subscriptions()->where('plan_id', $request->plan_id);
+
+        if ($current_subscription->status === "Active") {
+            throw new Error("Subscription is already Active");
+        }
+
         $payment_id = $request->payment_id;
+
         $validity = $plan->validity;
+
         $expires_at = now()->addMonths($validity);
 
         Subscription::updateOrCreate([
