@@ -20,17 +20,19 @@ class SubscriptionController extends Controller
 
     protected function update(Request $request)
     {
-        $user = auth('api')->user();
+        $user = auth()->user();
 
         $plan = Plan::find($request->plan_id);
-        $payment_id = $request->payment_id;
 
-        Subscription::create([
-            'payment_id' => $payment_id,
+        $payment_id = $request->payment_id;
+        $expires_at = $plan->expires_at;
+
+        Subscription::updateOrCreate([
             'user_id' => $user->id,
             'plan_id' => $plan->id,
-            'institute_id' => $user->institute_id,
-            'expires_at' => $plan->expires_at
+        ], [
+            'payment_id' => $payment_id,
+            'expires_at' => $expires_at
         ]);
 
         return response(['user' => $this->userRepository->getUserById($user->id)], 200);
