@@ -37,7 +37,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $appends = ['setting'];
+    protected $appends = ['setting', 'avatar'];
+
+    public function getAvatarAttribute($avatar)
+    {
+        if($avatar) return $avatar;
+
+        return "default.png";
+    }
 
     public function getSettingAttribute()
     {

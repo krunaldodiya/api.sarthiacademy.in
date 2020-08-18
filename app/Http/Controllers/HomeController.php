@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
 
+use Error;
+
 class HomeController extends Controller
 {
     public function getMediaFile(Request $request)
@@ -18,6 +20,6 @@ class HomeController extends Controller
             return response()->file("storage/{$file}");
         }
 
-        return response()->file("storage/{$media}.png");
+        throw new Error("File Does not exists");
     }
 }
