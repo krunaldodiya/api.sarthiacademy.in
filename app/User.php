@@ -41,13 +41,7 @@ class User extends Authenticatable
 
     public function getAvatarAttribute($avatar)
     {
-        return $avatar === null;
-
-        // if ($this->avatar !== null) {
-        //     return $this->avatar;
-        // }
-
-        // return "default.png";
+        return $avatar ? $avatar : "default.png";
     }
 
     public function getSettingAttribute()
