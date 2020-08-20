@@ -25,4 +25,9 @@ class Test extends Model
     {
         return $this->belongsToMany(Question::class, 'test_questions');
     }
+
+    public function participants()
+    {
+        return $this->hasMany(TestParticipant::class);
+    }
 }

@@ -67,4 +67,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(DeviceToken::class);
     }
+
+    public function test_answers()
+    {
+        return $this->hasMany(TestAnswer::class, 'test_id', 'test_id')->where('user_id', $this->user_id);
+    }
 }
