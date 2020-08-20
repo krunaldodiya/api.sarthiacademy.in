@@ -26,7 +26,7 @@ class Test extends Model
             return $test->status;
         }
 
-        return "Pending";
+        return "pending";
     }
 
     public function course()
