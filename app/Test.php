@@ -16,6 +16,19 @@ class Test extends Model
         'created_at', 'updated_at',
     ];
 
+    protected $appends = ['status'];
+
+    public function getStatusAttribute()
+    {
+        $test = TestParticipant::where(['user_id' => auth()->id(), 'test_id' => $this->id])->first();
+
+        if ($test) {
+            return $test->status;
+        }
+
+        return "Pending";
+    }
+
     public function course()
     {
         return $this->belongsTo(Course::class);
