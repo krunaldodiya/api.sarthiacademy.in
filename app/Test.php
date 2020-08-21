@@ -39,6 +39,11 @@ class Test extends Model
         return $this->belongsToMany(Question::class, 'test_questions');
     }
 
+    public function answers()
+    {
+        return $this->hasMany(TestAnswer::class, 'test_id', 'test_id')->where('user_id', $this->user_id);
+    }
+
     public function participants()
     {
         return $this->hasMany(TestParticipant::class);
