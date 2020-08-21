@@ -50,8 +50,8 @@ class TestController extends Controller
             'status' => 'finished'
         ]);
 
-        $tests = Test::with('questions', 'answers', 'participants')->where('id', $request->test_id)->first();
+        $test = Test::with('questions', 'answers', 'participants')->where('id', $request->test_id)->first();
 
-        return response(['tests' => $tests], 200);
+        return response(['test' => $test], 200);
     }
 }
