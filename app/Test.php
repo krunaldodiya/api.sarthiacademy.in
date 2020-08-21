@@ -41,7 +41,7 @@ class Test extends Model
 
     public function answers()
     {
-        return $this->hasMany(TestAnswer::class, 'test_id', 'test_id')->where('user_id', $this->user_id);
+        return $this->hasMany(TestAnswer::class)->where('user_id', $this->user_id);
     }
 
     public function participants()
