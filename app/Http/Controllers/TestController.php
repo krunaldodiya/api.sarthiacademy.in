@@ -20,13 +20,13 @@ class TestController extends Controller
     {
         $user = auth()->user();
 
+        $test = Test::find($request->test_id);
+
         $exists = TestParticipant::where(['test_id' => $test->id,'user_id' => $user->id])->first();
 
         if ($exists) {
             throw new Error("Already Submitted");
         }
-
-        $test = Test::find($request->test_id);
 
         $answers = collect($request->meta)
             ->map(function ($answer) use ($user, $test) {
