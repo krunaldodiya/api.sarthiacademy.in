@@ -49,5 +49,7 @@ class TestController extends Controller
             'points' => $answers->sum('point'),
             'status' => 'finished'
         ]);
+
+        return response(['success' => true], 200);
     }
 }
