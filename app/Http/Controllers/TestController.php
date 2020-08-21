@@ -4,36 +4,50 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Notification;
+use App\Test;
 
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Storage;
+use App\TestAnswer;
+
+use App\TestParticipant;
+
+use Illuminate\Support\Str;
+
+use Error;
 
 class TestController extends Controller
 {
-    public function client()
+    public function submit(Request $request)
     {
-        return Http::withHeaders([
-            'Authorization' => env('PUSH_TOKEN'),
-            'Content-Type' => 'application/json',
-            'Accept' => 'application/json'
+        $user = auth()->user();
+
+        $exists = TestParticipant::where(['test_id' => $test->id,'user_id' => $user->id])->first();
+
+        if ($exists) {
+            throw new Error("Already Submitted");
+        }
+
+        $test = Test::find($request->test_id);
+
+        $answers = collect($request->meta)
+            ->map(function ($answer) use ($user, $test) {
+                return [
+                    'id' => Str::uuid(),
+                    'user_id' => $user->id,
+                    'test_id' => $test->id,
+                    'question_id' => $answer['question_id'],
+                    'point' => $answer['point'],
+                    'current_answer' => $answer['current_answer'],
+                    'correct_answer' => $answer['correct_answer'],
+                ];
+            });
+
+        TestAnswer::insert($answers->toArray());
+
+        TestParticipant::create([
+            'test_id' => $test->id,
+            'user_id' => $user->id,
+            'points' => $answers->sum('point'),
+            'status' => 'finished'
         ]);
-    }
-
-    public function testUsers(Request $request)
-    {
-        return response(["users" => $this->users()], 200);
-    }
-
-    public function testAuth(Request $request)
-    {
-        return response(["token" => "mytoken", "user" => $this->users()[0]], 200);
-    }
-
-    public function testNotification(Request $request)
-    {
-        $notification = Notification::first();
-
-        dd(asset("storage/{$notification['image']}"));
     }
 }

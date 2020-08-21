@@ -10,6 +10,8 @@ Route::middleware('auth:sanctum')->post('/upload/avatar', 'UserController@upload
 
 Route::middleware('auth:sanctum')->post('/feedback/send', 'FeedbackController@send');
 
+Route::middleware('auth:sanctum')->post('/tests/submit', 'TestController@submit');
+
 Route::middleware('auth:sanctum')->get('/courses/all', 'CourseController@getCourses');
 Route::middleware('auth:sanctum')->get('/courses/materials', 'CourseController@getCourseMaterials');
 Route::middleware('auth:sanctum')->get('/courses/tests', 'CourseController@getCourseTests');
