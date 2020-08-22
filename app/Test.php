@@ -46,6 +46,6 @@ class Test extends Model
 
     public function participants()
     {
-        return $this->hasMany(TestParticipant::class);
+        return $this->hasMany(TestParticipant::class)->orderBy('points', 'desc');
     }
 }
