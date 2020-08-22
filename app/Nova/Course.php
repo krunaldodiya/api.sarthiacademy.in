@@ -52,6 +52,8 @@ class Course extends Resource
 
             BelongsToMany::make('Videos', 'videos', Video::class)->sortable(),
 
+            BelongsToMany::make('Subject', 'subjects', Subject::class)->sortable(),
+
             Text::make('Name')->sortable()->rules('required'),
 
             Text::make('Description')->sortable()->rules('required'),
