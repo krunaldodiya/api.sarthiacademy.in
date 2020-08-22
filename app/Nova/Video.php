@@ -11,6 +11,8 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
+use R64\NovaFields\JSON;
+
 class Video extends Resource
 {
     /**
@@ -67,7 +69,10 @@ class Video extends Resource
 
             Textarea::make('Description'),
 
-            Text::make('Url'),
+            JSON::make('Url', [
+                Text::make('Quality'),
+                Text::make('Link'),
+            ], 'url'),
 
             Image::make('Thumbnail')->disk('public'),
 

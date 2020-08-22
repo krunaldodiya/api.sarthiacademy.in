@@ -16,6 +16,10 @@ class Video extends Model
         'created_at', 'updated_at',
     ];
 
+    protected $casts = [
+        'url' => 'json',
+    ];
+
     public function courses()
     {
         return $this->belongsToMany(Course::class, 'course_videos');
