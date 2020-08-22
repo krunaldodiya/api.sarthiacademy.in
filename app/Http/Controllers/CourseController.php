@@ -40,7 +40,7 @@ class CourseController extends Controller
         $tests = Test::with('questions', 'answers.question', 'participants.user')
         ->where(function ($query) use ($request) {
             if ($request->date) {
-                return $query->where('created_at', $request->date);
+                return $query->whereDate('created_at', $request->date);
             }
         })
         ->where('course_id', $request->course_id)
