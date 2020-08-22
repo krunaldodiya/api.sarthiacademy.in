@@ -35,4 +35,9 @@ class Course extends Model
     {
         return $this->belongsToMany(Video::class, 'course_videos')->orderBy('order');
     }
+
+    public function subjects()
+    {
+        return $this->belongsToMany(Subject::class, 'course_subject')->orderBy('order');
+    }
 }

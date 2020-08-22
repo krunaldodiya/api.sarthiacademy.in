@@ -23,6 +23,6 @@ class Subject extends Model
 
     public function courses()
     {
-        return $this->belongsToMany(Course::class)->orderBy('order');
+        return $this->belongsToMany(Course::class, 'course_subject')->orderBy('order');
     }
 }

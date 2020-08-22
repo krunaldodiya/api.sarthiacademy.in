@@ -56,7 +56,7 @@ class Subject extends Resource
 
             HasMany::make('Chapters')->sortable(),
 
-            BelongsToMany::make('Courses')->sortable(),
+            BelongsToMany::make('Courses', 'courses', Video::class)->sortable(),
 
             Text::make('Name')
                 ->sortable()
