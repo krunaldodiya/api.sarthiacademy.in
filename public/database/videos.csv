@@ -1,6 +1,6 @@
-id,subject_id,chapter_id,thumbnail,title,description,url,order,created_at,updated_at
-fbd228f1-2cd0-496a-904a-a51bf50e7a2c,d862b9ed-aaa5-4725-a995-5f67c7f0c8f0,59e70760-3032-47a6-8fbf-0a5dd27f2987,Mb7oMM3r4HdrpboMKogLQrxCMPe6TqNYBEvrCwz1.jpeg,NOUN 1,GVG,{},4,8/12/2020 6:50,8/19/2020 14:37
-9c7d64e2-ff3f-43de-a909-74a1565c4677,d862b9ed-aaa5-4725-a995-5f67c7f0c8f0,6b6611a3-f83e-4dc4-bec2-b3912d06cd8e,M1aNhWmzblFfWkAUgR8OYSBXQncpWtvwpHbBcMUk.jpeg,NOUN2,GHJ,{},5,8/12/2020 6:50,8/19/2020 14:37
-4899b196-987e-4a3d-89c0-8e995a39bc67,d862b9ed-aaa5-4725-a995-5f67c7f0c8f0,fecc3e96-eb2f-47e2-b7e3-56d809060776,OQpEVwxsVqQ808rtl8besBuIafeBZobRijXD1j2Q.png,Part 1,Indefinite Article,{},2,8/10/2020 14:07,8/19/2020 14:37
-2fb59800-4d92-4978-9253-ecdcd9de9a06,d862b9ed-aaa5-4725-a995-5f67c7f0c8f0,0d28505d-367c-4332-9d16-19cc67e28ff4,YADWxkeB6zcn0w05zPTYm87sXeZn5hFPiRxf4KH3.jpeg,BASIC ENGLISH,CGCGF,{},3,8/12/2020 6:49,8/19/2020 14:37
-24408c32-2be0-4f0d-aeee-db6062c2a373,d862b9ed-aaa5-4725-a995-5f67c7f0c8f0,5003d912-3193-417a-b02d-a2df96deeb97,2gHziiWWgk98Wg0qXaOtbutEdurk2WiMyjHvMgVn.jpeg,test,test,{},1,8/10/2020 1:46,8/19/2020 14:38
+id,subject_id,chapter_id,thumbnail,title,description,order,created_at,updated_at
+fbd228f1-2cd0-496a-904a-a51bf50e7a2c,d862b9ed-aaa5-4725-a995-5f67c7f0c8f0,59e70760-3032-47a6-8fbf-0a5dd27f2987,Mb7oMM3r4HdrpboMKogLQrxCMPe6TqNYBEvrCwz1.jpeg,NOUN 1,GVG,4,2020-08-12 06:50:00,2020-08-19 14:37:00
+9c7d64e2-ff3f-43de-a909-74a1565c4677,d862b9ed-aaa5-4725-a995-5f67c7f0c8f0,6b6611a3-f83e-4dc4-bec2-b3912d06cd8e,M1aNhWmzblFfWkAUgR8OYSBXQncpWtvwpHbBcMUk.jpeg,NOUN2,GHJ,5,2020-08-12 06:50:00,2020-08-19 14:37:00
+4899b196-987e-4a3d-89c0-8e995a39bc67,d862b9ed-aaa5-4725-a995-5f67c7f0c8f0,fecc3e96-eb2f-47e2-b7e3-56d809060776,OQpEVwxsVqQ808rtl8besBuIafeBZobRijXD1j2Q.png,Part 1,Indefinite Article,2,2020-08-10 14:07:00,2020-08-19 14:37:00
+2fb59800-4d92-4978-9253-ecdcd9de9a06,d862b9ed-aaa5-4725-a995-5f67c7f0c8f0,0d28505d-367c-4332-9d16-19cc67e28ff4,YADWxkeB6zcn0w05zPTYm87sXeZn5hFPiRxf4KH3.jpeg,BASIC ENGLISH,CGCGF,3,2020-08-12 06:49:00,2020-08-19 14:37:00
+24408c32-2be0-4f0d-aeee-db6062c2a373,d862b9ed-aaa5-4725-a995-5f67c7f0c8f0,5003d912-3193-417a-b02d-a2df96deeb97,2gHziiWWgk98Wg0qXaOtbutEdurk2WiMyjHvMgVn.jpeg,test,test,1,2020-08-10 01:46:00,2020-08-19 14:38:00

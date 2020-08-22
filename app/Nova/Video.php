@@ -68,7 +68,7 @@ class Video extends Resource
 
             Textarea::make('Description'),
 
-            HasMany::make('Qualities'),
+            HasMany::make('Video Qualities', 'qualities', VideoQuality::class),
 
             Image::make('Thumbnail')->disk('public'),
 
