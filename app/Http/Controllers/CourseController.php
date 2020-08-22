@@ -26,7 +26,7 @@ class CourseController extends Controller
         $chapter_id = $course->videos->pluck('chapter_id');
         $video_id = $course->videos->pluck('id');
 
-        $subjects = Subject::with(['chapters' => function ($query) use ($subject_id, $chapter_id, $video_id) {
+        $subjects = Subject::with(['chapters.videos.qualities' => function ($query) use ($subject_id, $chapter_id, $video_id) {
             return $query->with(['videos.qualities' => function ($query) use ($subject_id, $chapter_id, $video_id) {
                 return $query->whereIn('id', $video_id);
             }])->whereIn('id', $chapter_id);
