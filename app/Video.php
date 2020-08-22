@@ -16,9 +16,6 @@ class Video extends Model
         'created_at', 'updated_at',
     ];
 
-    protected $casts = [
-        'url' => 'json',
-    ];
 
     public function courses()
     {
@@ -33,5 +30,10 @@ class Video extends Model
     public function subject()
     {
         return $this->belongsTo(Subject::class);
+    }
+
+    public function qualities()
+    {
+        return $this->hasMany(VideoQuality::class);
     }
 }

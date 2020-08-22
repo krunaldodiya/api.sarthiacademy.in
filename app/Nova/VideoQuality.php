@@ -3,34 +3,26 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Video extends Resource
+class VideoQuality extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\Video';
+    public static $model = \App\VideoQuality::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
-
-    public function title()
-    {
-        return $this->title;
-    }
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -38,10 +30,8 @@ class Video extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title'
+        'id',
     ];
-
-    public static $group = 'Course';
 
     /**
      * Get the fields displayed by the resource.
@@ -54,27 +44,9 @@ class Video extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
 
-            BelongsToMany::make('Courses', 'courses', Course::class)->sortable(),
+            Select::make('Quality', 'quality')->options(['480' => '480','720' => '720','1080' => '1080']),
 
-            BelongsTo::make('Subject'),
-
-            BelongsTo::make('Chapter'),
-
-            Text::make('Title')
-                ->sortable()
-                ->creationRules('required', 'unique:videos,title')
-                ->updateRules('required', 'unique:videos,title,{{resourceId}}'),
-
-            Textarea::make('Description'),
-
-            HasMany::make('Qualities'),
-
-            Image::make('Thumbnail')->disk('public'),
-
-            Text::make('Order')
-                ->sortable()
-                ->creationRules('required', 'unique:videos,order')
-                ->updateRules('required', 'unique:videos,order,{{resourceId}}'),
+            Text::make('Link')
         ];
     }
 
