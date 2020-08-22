@@ -10,7 +10,7 @@ class PushNotificationRepository implements PushNotificationRepositoryInterface
     public function client()
     {
         return Http::withHeaders([
-            'Authorization' => env('PUSH_TOKEN'),
+            'Authorization' => env('FIREBASE_SERVER_KEY'),
             'Content-Type' => 'application/json',
             'Accept' => 'application/json'
         ]);
