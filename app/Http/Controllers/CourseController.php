@@ -37,7 +37,14 @@ class CourseController extends Controller
 
     public function getCourseTests(Request $request)
     {
-        $tests = Test::with('questions', 'answers.question', 'participants.user')->where('course_id', $request->course_id)->get();
+        $tests = Test::with('questions', 'answers.question', 'participants.user')
+        ->where(function ($query) use ($request) {
+            if ($request->date) {
+                return $query->where('created_at', $request->date);
+            }
+        })
+        ->where('course_id', $request->course_id)
+        ->get();
 
         return response(['tests' => $tests], 200);
     }
