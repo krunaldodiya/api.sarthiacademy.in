@@ -19,7 +19,7 @@ class CreateVideoQualitiesTable extends Migration
             $table->uuid('video_id');
             $table->foreign('video_id')->references('id')->on('videos')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->enum('quality', ['480p', '720p', '1080p'])->default('joined');
+            $table->enum('quality', ['480p', '720p', '1080p'])->default('480p');
             $table->string('link');
 
             $table->timestamps();
