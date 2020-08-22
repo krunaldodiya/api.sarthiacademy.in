@@ -56,8 +56,6 @@ class Subject extends Resource
 
             HasMany::make('Chapters')->sortable(),
 
-            BelongsToMany::make('Courses', 'courses', Course::class)->sortable(),
-
             Text::make('Name')
                 ->sortable()
                 ->creationRules('required', 'unique:subjects,name')
