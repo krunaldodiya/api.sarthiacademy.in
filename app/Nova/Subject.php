@@ -41,7 +41,7 @@ class Subject extends Resource
     ];
 
 
-    public static $group = 'Meta';
+    public static $group = 'Course';
 
     /**
      * Get the fields displayed by the resource.

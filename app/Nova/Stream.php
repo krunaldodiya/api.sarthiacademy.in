@@ -36,7 +36,7 @@ class Stream extends Resource
         'id',
     ];
 
-    public static $group = 'Meta';
+    public static $group = 'Course';
 
     /**
      * Get the fields displayed by the resource.
