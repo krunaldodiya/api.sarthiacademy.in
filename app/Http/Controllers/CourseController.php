@@ -8,6 +8,7 @@ use App\Course;
 use App\Subject;
 use App\Test;
 use App\Attachment;
+use App\Stream;
 
 class CourseController extends Controller
 {
