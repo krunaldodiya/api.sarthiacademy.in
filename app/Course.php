@@ -31,6 +31,11 @@ class Course extends Model
         return $this->hasMany(Attachment::class);
     }
 
+    public function streams()
+    {
+        return $this->hasMany(Stream::class);
+    }
+
     public function videos()
     {
         return $this->belongsToMany(Video::class, 'course_videos')->orderBy('order');
