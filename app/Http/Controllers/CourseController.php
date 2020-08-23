@@ -55,4 +55,11 @@ class CourseController extends Controller
 
         return response(['attachments' => $attachments], 200);
     }
+
+    public function getCourseStreams(Request $request)
+    {
+        $streams = Stream::where('course_id', $request->course_id)->get();
+
+        return response(['streams' => $streams], 200);
+    }
 }

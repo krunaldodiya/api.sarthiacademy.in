@@ -16,6 +16,7 @@ Route::middleware('auth:sanctum')->get('/courses/all', 'CourseController@getCour
 Route::middleware('auth:sanctum')->get('/courses/materials', 'CourseController@getCourseMaterials');
 Route::middleware('auth:sanctum')->get('/courses/tests', 'CourseController@getCourseTests');
 Route::middleware('auth:sanctum')->get('/courses/attachments', 'CourseController@getCourseAttachments');
+Route::middleware('auth:sanctum')->get('/courses/streams', 'CourseController@getCourseStreams');
 
 Route::middleware('auth:sanctum')->get('/notifications/all', 'NotificationController@getNotifications');
 Route::middleware('auth:sanctum')->post('/notifications/read', 'NotificationController@markAsRead');
