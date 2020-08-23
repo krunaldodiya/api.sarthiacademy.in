@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Jamesh\Uuid\HasUuid;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Stream extends Model
