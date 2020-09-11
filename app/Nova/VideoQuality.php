@@ -46,7 +46,13 @@ class VideoQuality extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
 
-            Select::make('Quality', 'quality')->options(['480p' => '480p','720p' => '720p','1080p' => '1080p']),
+            Select::make('Quality', 'quality')->options([
+                '240p' => '240p',
+                '360p' => '360p',
+                '480p' => '480p',
+                '720p' => '720p',
+                '1080p' => '1080p'
+            ]),
 
             Text::make('Link')
         ];
