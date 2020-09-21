@@ -9,7 +9,7 @@ use App\Subject;
 use App\Test;
 use App\Attachment;
 use App\Stream;
-use App\Quality;
+use App\VideoQuality;
 
 class CourseController extends Controller
 {
@@ -41,7 +41,7 @@ class CourseController extends Controller
     {
         $quality_ids = $request->quality_ids;
 
-        $qualities = Quality::with('video.chapter')
+        $qualities = VideoQuality::with('video.chapter')
             ->whereIn('id', $quality_ids)
             ->get();
 
