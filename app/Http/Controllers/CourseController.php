@@ -9,6 +9,7 @@ use App\Subject;
 use App\Test;
 use App\Attachment;
 use App\Stream;
+use App\Quality;
 
 class CourseController extends Controller
 {
@@ -34,6 +35,17 @@ class CourseController extends Controller
         }])->whereIn('id', $subject_id)->get();
 
         return response(['subjects' => $subjects], 200);
+    }
+
+    public function getQualityByIds(Request $request)
+    {
+        $quality_ids = $request->quality_ids;
+
+        $qualities = Quality::with('video.chapter')
+            ->whereIn('id', $quality_ids)
+            ->get();
+
+        return response(['qualities' => $qualities], 200);
     }
 
     public function getCourseTests(Request $request)
