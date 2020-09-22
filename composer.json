@@ -16,6 +16,7 @@
     "require": {
         "php": "^7.2.5",
         "64robots/nova-fields": "^0.18.0",
+        "beyondcode/laravel-websockets": "^1.8",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
@@ -28,6 +29,7 @@
         "laravel/tinker": "^2.0",
         "madewithlove/laravel-nova-uuid-support": "^1.1",
         "owenmelbz/nova-radio-field": "^1.0",
+        "pusher/pusher-php-server": "~3.0",
         "titasgailius/search-relations": "^1.0"
     },
     "require-dev": {
