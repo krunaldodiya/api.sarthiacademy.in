@@ -57,7 +57,9 @@ class VideoQuality extends Resource
                 '1080p' => '1080p'
             ]),
 
-            Text::make('Link')
+            Text::make('Link'),
+
+            Text::make('Size'),
         ];
     }
 

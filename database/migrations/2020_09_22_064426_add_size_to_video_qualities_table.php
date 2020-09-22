@@ -14,7 +14,7 @@ class AddSizeToVideoQualitiesTable extends Migration
     public function up()
     {
         Schema::table('video_qualities', function (Blueprint $table) {
-            $table->string('size');
+            $table->string('size')->default(0);
         });
     }
 
