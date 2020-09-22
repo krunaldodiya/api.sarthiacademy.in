@@ -20,9 +20,6 @@ class CreateVideoQualitiesTable extends Migration
             $table->foreign('video_id')->references('id')->on('videos')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('quality')->default('480p');
-
-            $table->string('size');
-
             $table->string('link');
 
             $table->timestamps();
