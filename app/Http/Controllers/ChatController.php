@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Events\MessageReceived;
 
+use App\Chat;
+
 class ChatController extends Controller
 {
     public function send(Request $request)
