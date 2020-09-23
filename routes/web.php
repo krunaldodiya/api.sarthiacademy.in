@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    dd(config('websockets'));
+    return 'test';
 });
 
 Route::get('/media/{media}', 'HomeController@getMediaFile');
