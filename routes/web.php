@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    dd($_ENV);
+    dd(config('broadcasting'));
 });
 
 Route::get('/media/{media}', 'HomeController@getMediaFile');
