@@ -18,4 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test', function () {
+    return env('PUSHER_APP_KEY');
+});
+
 Route::get('/media/{media}', 'HomeController@getMediaFile');
