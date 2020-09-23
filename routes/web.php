@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return env('PUSHER_APP_KEY');
+    dd($_ENV);
 });
 
 Route::get('/media/{media}', 'HomeController@getMediaFile');
