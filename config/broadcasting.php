@@ -36,6 +36,7 @@ return [
             'secret' => env('PUSHER_APP_SECRET'),
             'app_id' => env('PUSHER_APP_ID'),
             'options' => [
+                'encrypted' => false,
                 'cluster'   =>  env('PUSHER_APP_CLUSTER'),
                 'host' => env('PUSHER_APP_HOST'),
                 'port' => env('PUSHER_APP_PORT'),
