@@ -35,6 +35,6 @@ class MessageReceived implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('channel.' . $this->chat->channel_id);
+        return new Channel('channel-' . $this->chat->channel_id);
     }
 }
