@@ -25,7 +25,7 @@ class ChatController extends Controller
 
     public function getMessages(Request $request)
     {
-        $messages = Chat::where(['channel_id' => $request->channel_id])->get();
+        $messages = Chat::with('sender')->where(['channel_id' => $request->channel_id])->get();
 
         return ['messages' => $messages];
     }
