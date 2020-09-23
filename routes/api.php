@@ -29,4 +29,4 @@ Route::middleware('auth:sanctum')->get('/users/me', 'UserController@me');
 Route::middleware('auth:sanctum')->post('/subscriptions/update', 'SubscriptionController@update');
 
 Route::middleware('auth:sanctum')->post('/messages/send', 'ChatController@send');
-Route::middleware('auth:sanctum')->post('/messages', 'ChatController@getMessages');
+Route::middleware('auth:sanctum')->get('/messages', 'ChatController@getMessages');
