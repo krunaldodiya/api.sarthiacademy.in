@@ -14,7 +14,7 @@ use App\Chat;
 
 class MessageReceived implements ShouldBroadcast
 {
-    public $chat;
+    public $message;
 
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -23,9 +23,9 @@ class MessageReceived implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct(Chat $chat)
+    public function __construct(Chat $message)
     {
-        $this->chat = $chat;
+        $this->message = $message;
     }
 
     /**
@@ -35,6 +35,6 @@ class MessageReceived implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('channel-' . $this->chat->channel_id);
+        return new Channel('channel-' . $this->message->channel_id);
     }
 }
