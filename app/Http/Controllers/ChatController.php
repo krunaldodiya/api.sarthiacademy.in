@@ -12,15 +12,17 @@ class ChatController extends Controller
 {
     public function send(Request $request)
     {
-        $chat = Chat::create([
+        $create = Chat::create([
             'sender_id' => auth()->id(),
             'message'=> $request->message,
             'channel_id' => $request->channel_id
         ]);
 
-        event(new MessageReceived($chat));
+        $message = Chat::with('sender')->find($create->id);
 
-        return ['chat' => $chat];
+        event(new MessageReceived($message));
+
+        return ['message' => $message];
     }
 
     public function getMessages(Request $request)
