@@ -25,6 +25,8 @@ class MessageReceived implements ShouldBroadcast
      */
     public function __construct(Chat $message)
     {
+        dump($message);
+
         $this->message = $message;
     }
 
