@@ -25,9 +25,10 @@ class MessageReceived implements ShouldBroadcast
      */
     public function __construct(Chat $message)
     {
-        dump($message);
-
         $this->message = $message;
+
+        dump($this->message->channel_id);
+        dump($message->channel_id);
     }
 
     /**
@@ -37,6 +38,8 @@ class MessageReceived implements ShouldBroadcast
      */
     public function broadcastOn()
     {
+        dump($this->message->channel_id);
+
         return new Channel('channel-' . $this->message->channel_id);
     }
 }
