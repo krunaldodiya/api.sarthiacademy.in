@@ -146,7 +146,7 @@ class User extends Resource
     {
         return [
             new UserImportAction,
-            (new ModelExportAction('users'))->withHeadings(),
+            new ModelExportAction('users'),
         ];
     }
 }
