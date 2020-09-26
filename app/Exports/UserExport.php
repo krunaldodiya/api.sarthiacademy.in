@@ -14,6 +14,24 @@ class UserExport implements FromCollection, WithHeadings
     {
         return [
             'id',
+            'email',
+            'email_verified_at',
+            'mobile',
+            'mobile_verified_at',
+            'username',
+            'password',
+            'name',
+            'dob',
+            'gender',
+            'avatar',
+            'city',
+            'country_id',
+            'unique_id',
+            'account_status',
+            'status',
+            'remember_token',
+            'created_at',
+            'updated_at',
         ];
     }
 
