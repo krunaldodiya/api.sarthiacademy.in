@@ -27,7 +27,7 @@ class UserExportAction extends Action
     {
         dump($models[0]);
 
-        return redirect('/exports/users');
+        return Action::redirect('/exports/users');
     }
 
     /**
