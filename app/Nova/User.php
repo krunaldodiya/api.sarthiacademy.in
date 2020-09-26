@@ -12,6 +12,8 @@ use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
 
+use App\Nova\Actions\UserImportAction;
+
 class User extends Resource
 {
     /**
@@ -141,6 +143,9 @@ class User extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new UserImportAction,
+            new UserExportAction
+        ];
     }
 }
