@@ -10,6 +10,13 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 
 class UserExport implements FromCollection, WithHeadings
 {
+    public function headings(): array
+    {
+        return [
+            'id',
+        ];
+    }
+
     /**
     * @return \Illuminate\Support\Collection
     */
