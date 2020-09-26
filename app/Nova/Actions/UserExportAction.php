@@ -25,6 +25,8 @@ class UserExportAction extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
+        dump($models[0]);
+
         return redirect('/exports/users');
     }
 
