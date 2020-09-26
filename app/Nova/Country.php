@@ -7,6 +7,8 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
+use App\Nova\Actions\ModelExportAction;
+
 class Country extends Resource
 {
     /**
@@ -94,6 +96,8 @@ class Country extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new ModelExportAction('users'),
+        ];
     }
 }

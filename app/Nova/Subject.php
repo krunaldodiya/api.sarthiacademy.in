@@ -10,6 +10,8 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
+use App\Nova\Actions\ModelExportAction;
+
 class Subject extends Resource
 {
     /**
@@ -111,6 +113,8 @@ class Subject extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new ModelExportAction('users'),
+        ];
     }
 }

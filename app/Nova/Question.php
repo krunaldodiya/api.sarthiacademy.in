@@ -15,6 +15,8 @@ use App\Nova\Actions\AddTestQuestion;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 
+use App\Nova\Actions\ModelExportAction;
+
 class Question extends Resource
 {
     /**
@@ -114,7 +116,8 @@ class Question extends Resource
     public function actions(Request $request)
     {
         return [
-            new AddTestQuestion()
+            new AddTestQuestion(),
+            new ModelExportAction('users'),
         ];
     }
 }

@@ -10,6 +10,8 @@ use Laravel\Nova\Fields\Text;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 
+use App\Nova\Actions\ModelExportAction;
+
 class DeviceToken extends Resource
 {
     /**
@@ -93,6 +95,8 @@ class DeviceToken extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new ModelExportAction('users'),
+        ];
     }
 }

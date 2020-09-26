@@ -11,6 +11,8 @@ use Laravel\Nova\Fields\Text;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 
+use App\Nova\Actions\ModelExportAction;
+
 class Test extends Resource
 {
     /**
@@ -104,6 +106,8 @@ class Test extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new ModelExportAction('users'),
+        ];
     }
 }

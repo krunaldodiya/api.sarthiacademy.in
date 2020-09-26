@@ -11,6 +11,8 @@ use Laravel\Nova\Fields\File;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 
+use App\Nova\Actions\ModelExportAction;
+
 class Attachment extends Resource
 {
     /**
@@ -98,6 +100,8 @@ class Attachment extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new ModelExportAction('users'),
+        ];
     }
 }
