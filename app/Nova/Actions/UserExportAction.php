@@ -10,6 +10,7 @@ use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 
 use App\Imports\UserExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserExportAction extends Action
 {
