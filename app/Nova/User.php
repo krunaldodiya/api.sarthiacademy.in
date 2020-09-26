@@ -13,6 +13,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
 
 use App\Nova\Actions\UserImportAction;
+use App\Nova\Actions\UserExportAction;
 
 class User extends Resource
 {
