@@ -12,6 +12,6 @@ class ExportController extends Controller
     {
         $table = config('exports')[$request->table];
 
-        return Excel::download($table, $request->table);
+        return Excel::download($table, $request->table, Excel::CSV);
     }
 }
