@@ -22,4 +22,6 @@ Route::get('/test', function () {
     return 'test';
 });
 
+Route::get('/exports/{table}', "ExportController@handle");
+
 Route::get('/media/{media}', 'HomeController@getMediaFile');

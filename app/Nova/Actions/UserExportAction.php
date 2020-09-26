@@ -25,7 +25,7 @@ class UserExportAction extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        return Excel::download(new UserExport, 'invoices.xlsx');
+        return redirect('/exports/users');
     }
 
     /**
