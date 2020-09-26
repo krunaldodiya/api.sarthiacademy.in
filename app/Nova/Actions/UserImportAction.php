@@ -12,7 +12,7 @@ use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 use Laravel\Nova\Fields\File;
 
-use App\Imports\ImportUser;
+use App\Imports\UserImport;
 
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -29,7 +29,7 @@ class UserImportAction extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        $data = Excel::import(new ImportUser, $fields->file);
+        $data = Excel::import(new UserImport, $fields->file);
 
         return Action::message('Success!');
     }

@@ -9,6 +9,8 @@ use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 
+use App\Imports\UserExport;
+
 class UserExportAction extends Action
 {
     use InteractsWithQueue, Queueable;
@@ -22,7 +24,7 @@ class UserExportAction extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        //
+        return Excel::download(new UserExport, 'invoices.xlsx');
     }
 
     /**
