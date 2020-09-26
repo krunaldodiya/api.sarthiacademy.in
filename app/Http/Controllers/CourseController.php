@@ -39,7 +39,7 @@ class CourseController extends Controller
 
     public function getQualityByIds(Request $request)
     {
-        $quality_ids = $request->quality_ids;
+        $quality_ids = $request->quality_ids ? $request->quality_ids : [];
 
         $qualities = VideoQuality::with('video.chapter.videos')
             ->whereIn('id', $quality_ids)
