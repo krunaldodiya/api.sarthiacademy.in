@@ -41,7 +41,7 @@ class CourseController extends Controller
     {
         $quality_ids = $request->quality_ids;
 
-        $qualities = VideoQuality::with('video.chapter')
+        $qualities = VideoQuality::with('video.chapter.videos')
             ->whereIn('id', $quality_ids)
             ->get();
 
