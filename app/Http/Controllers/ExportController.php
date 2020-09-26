@@ -10,8 +10,8 @@ class ExportController extends Controller
 {
     public function handle(Request $request)
     {
-        $table = $request->table;
+        $table = config('exports')[$request->table];
 
-        return Excel::download(new UserExport, 'invoices.xlsx');
+        return Excel::download($table['model'], $request->table);
     }
 }
