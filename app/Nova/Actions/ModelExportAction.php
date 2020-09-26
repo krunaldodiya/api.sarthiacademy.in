@@ -12,9 +12,16 @@ use Laravel\Nova\Fields\ActionFields;
 use App\Exports\UserExport;
 use Maatwebsite\Excel\Facades\Excel;
 
-class UserExportAction extends Action
+class ModelExportAction extends Action
 {
+    public $model;
+
     use InteractsWithQueue, Queueable;
+
+    public function __construct($model)
+    {
+        $this->model = $model;
+    }
 
     /**
      * Perform the action on the given models.
@@ -25,9 +32,7 @@ class UserExportAction extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        dump($models[0]);
-
-        return Action::redirect('/exports/users');
+        return Action::redirect("/exports/{$this->model}");
     }
 
     /**
