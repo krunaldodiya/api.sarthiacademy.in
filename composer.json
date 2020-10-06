@@ -32,6 +32,7 @@
         "madewithlove/laravel-nova-uuid-support": "^1.1",
         "owenmelbz/nova-radio-field": "^1.0",
         "pusher/pusher-php-server": "~3.0",
+        "spatie/laravel-db-snapshots": "^1.7",
         "titasgailius/search-relations": "^1.0"
     },
     "require-dev": {
