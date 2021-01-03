@@ -11,7 +11,7 @@ use Error;
 
 class HomeController extends Controller
 {
-    public function getLanguages(Request $request)
+    public function getCountries(Request $request)
     {
         $countries = Country::all();
 
