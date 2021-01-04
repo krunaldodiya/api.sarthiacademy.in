@@ -34,7 +34,7 @@ class GenerateUserInfo
 
         User::where('id', $event->user->id)->update([
             'username' => $username,
-            'username' => "$username@sarthiacademy.in"
+            'email' => "$username@sarthiacademy.in"
         ]);
     }
 }
