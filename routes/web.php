@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
+    User::where('username', null)->update(['username' => Illuminate\Support\Str::random(8)]);
     return 'test';
 });
 
