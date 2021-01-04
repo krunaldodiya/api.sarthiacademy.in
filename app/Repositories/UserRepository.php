@@ -31,10 +31,13 @@ class UserRepository implements UserRepositoryInterface
 
     public function checkAuthentication($request)
     {
+        $username = Str::random(8);
+
         $user = User::firstOrCreate([
             'mobile' => $request->mobile,
             'country_id' => $request->country_id,
-            'username' => Str::random(8)
+            'username' => $username,
+            'username' => "$username@sarthiacademy.in"
         ]);
 
         return $this->authenticate($user, $request);
