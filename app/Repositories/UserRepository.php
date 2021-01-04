@@ -33,7 +33,8 @@ class UserRepository implements UserRepositoryInterface
     {
         $user = User::firstOrCreate([
             'mobile' => $request->mobile,
-            'country_id' => $request->country_id
+            'country_id' => $request->country_id,
+            'username' => Str::random(8)
         ]);
 
         return $this->authenticate($user, $request);
