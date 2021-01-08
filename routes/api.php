@@ -32,3 +32,7 @@ Route::middleware('auth:sanctum')->post('/subscriptions/update', 'SubscriptionCo
 
 Route::middleware('auth:sanctum')->post('/messages/send', 'ChatController@send');
 Route::middleware('auth:sanctum')->get('/messages', 'ChatController@getMessages');
+
+Route::get('/test', function (Request $request) {
+    return response(['success' => true], 200);
+});
